@@ -1,0 +1,6 @@
+#!/bin/bash
+
+LD_PRELOAD=$PWD/syscalls/libinstrumenter.so \
+CUDA_VISIBLE_DEVICES=5 CKPT_DIR='$PWD/ckpt' \
+./python-hook python3 $@
+#./python-hook python3 $@
