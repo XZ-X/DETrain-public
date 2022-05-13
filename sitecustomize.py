@@ -134,8 +134,7 @@ def my_clean_up():
         os.remove(inst_file)
 
 if ('ENABLE_TRACE' in os.environ) and (os.environ['ENABLE_TRACE']=="1"):
-    # collect_trace()
-    pass
+    collect_trace()
 else:    
     hooker.hook_main_loop()
     patch()

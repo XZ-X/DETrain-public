@@ -727,11 +727,11 @@ def hook_main_loop():
 
 def add_hook_function(hook_info, module, hook_func, attr, patch_func):
     if module not in hook_info:
-        # TODO: XXZ
-        # hook_info[module] = (hook_func, [(attr, patch_func)])
-        hook_info[module] = [(hook_func, attr, patch_func)]
+        hook_info[module] = (hook_func, [(attr, patch_func)])                
     else:
-        hook_info[module][1].append((hook_func, attr, patch_func))
+        # # TODO: XXZ
+        hook_info[module][1].append((attr, patch_func))
+        # hook_info[module][1].append((hook_func, attr, patch_func))
 
 def backup_file(file_name):
     # backup source code
@@ -855,27 +855,28 @@ def adjust_lines(file_info, file_name, line_no):
 
 def hook(name, module):
     print(name)
-    module_info = hook_modules.get(name)
+    module_info = hook_modules.get(name)    
     if module_info is not None:
-        # TODO XXZ
-        if 'list' in str(type(module_info)):            
-            for entry in module_info:
-                func = entry[0]
-                func(entry[1:])
-        else:
-            func = module_info[0]
-            func(module)
-        # func = module_info[0]
-        # func_list = module_info[1]
-        # if len(func_list)>0:
-        #     for args in func_list:
-        #         # args should contain ata least two elements: function and a patch function
-        #         if len(args)>2:
-        #             func(module, args[0], args[1], args[2:])
-        #         else:
-        #             func(module, args[0], args[1])
+        # # TODO XXZ
+        # if 'list' in str(type(module_info)):            
+        #     for entry in module_info:
+        #         func = entry[0]
+        #         func(entry[1:])
         # else:
+        #     func = module_info[0]
         #     func(module)
+
+        func = module_info[0]
+        func_list = module_info[1]
+        if len(func_list)>0:
+            for args in func_list:
+                # args should contain ata least two elements: function and a patch function
+                if len(args)>2:
+                    func(module, args[0], args[1], args[2:])
+                else:
+                    func(module, args[0], args[1])
+        else:
+            func(module)
 
 
 def restore():

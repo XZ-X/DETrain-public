@@ -281,7 +281,7 @@ def handle_tf_ckpt_phony(m, func, dl_persist=False):
         reset_checkpoint()
 
     #if iter_epoch in [0, 1] and iter_counter in [16]:
-    if not is_restore and iter_counter in [20, 40]:
+    if not is_restore and iter_counter in [3, 6]:
     #if iter_counter in [5, 10]:
         remove_tf_child()
         print_model()
