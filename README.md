@@ -185,4 +185,4 @@ TBD.
 
 ## Contributors
 
-Hongyu Liu, Xiangzhe Xu, Guanhong Tao, Zhou Xuan, Xiangyu Zhang
+[Hongyu Liu](https://github.com/liuhycs), [Xiangzhe Xu](https://github.com/XZ-X), [Guanhong Tao](https://github.com/Gwinhen), [Zhou Xuan](https://github.com/zhouxuan009), Xiangyu Zhang
